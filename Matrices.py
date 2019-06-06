@@ -1,4 +1,6 @@
 import numpy, sys, time
+#import matplotlib
+#import matplotlib.pyplot as plt
 
 if (len(sys.argv) != 2):
     print("usage: python %s N" % sys.argv[0])
@@ -23,11 +25,16 @@ begin = time.time()
 # Write code to calculate C = A * B                  #
 # (without using numpy librarlies e.g., numpy.dot()) #
 ######################################################
+
 b = b.T
-c = a * b
+
+for j in range(n):
+    for k in range(n):
+        for l in range(n):
+            c[j, k] += a [j][l] * b[k][l]
 print(c)
-
-
+           
+            
 end = time.time()
 print("time: %.6f sec" % (end - begin))
 
@@ -35,8 +42,11 @@ print("time: %.6f sec" % (end - begin))
 total = 0
 for i in range(n):
     for j in range(n):
-        # print c[i, j]
+        # print (c[i, j])
         total += c[i, j]
 # Print out the sum of all values in C.
 # This should be 450 for N=3, 3680 for N=4, and 18250 for N=5.
 print("sum: %.6f" % total)
+
+
+
